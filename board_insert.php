@@ -70,7 +70,7 @@
 	}
 
     include "./dbConnect.php";
-	$sql = "insert into borad (user_name, user_id, title, memo, cdate, hits, file_name, file_type, file_copied) ";
+	$sql = "insert into board (user_name, user_id, title, memo, cdate, hits, file_name, file_type, file_copied) ";
 	$sql .= "values('$user_name', '$user_id', '$title', '$memo', '$cdate', 0, ";
 	$sql .= "'$upfile_name', '$upfile_type', '$copied_file_name')";
 	
@@ -81,4 +81,4 @@
 
  <meta charset="utf-8" />
  <script type="text/javascript">alert('글이 작성되었습니다.');</script>
- <meta http-equiv="refresh" content="0 url=borad_list.php">
+ <meta http-equiv="refresh" content="0 url=board_list.php">

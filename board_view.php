@@ -4,7 +4,7 @@
   $page = $_GET['page'];
   
   include "./dbConnect.php";
-  $sql = "select * from borad where no = $no";
+  $sql = "select * from board where no = $no";
   $result = mysqli_query($connect,$sql);
   
   $row = mysqli_fetch_array($result);
@@ -23,7 +23,7 @@
   $memo = str_replace("\n", "<br>", $memo);
   
   $new_hits = $hits + 1;
-  $sql = "update borad set hits = $new_hits where no =$no";
+  $sql = "update board set hits = $new_hits where no =$no";
   mysqli_query($connect,$sql);
   
 ?>
@@ -34,12 +34,12 @@
 <header>
     <?php include "header.php";?>
 </header>
-    <h2> <?=$title?>&nbsp&nbsp<button type = "button" onclick ="location.href='borad_list.php'">목록</button>
+    <h2> <?=$title?>&nbsp&nbsp<button type = "button" onclick ="location.href='board_list.php'">목록</button>
 <?php 
     if($user_id && $_SESSION['user_id'] == $row['user_id']) {
 ?>
-			<button type = "button" onclick="location.href='borad_update_form.php?no=<?=$no?>&page=<?=$page?>'">수정</button>
-			<button type = "button" onclick ="location.href='borad_delete.php?no=<?=$no?>'">삭제</button>
+			<button type = "button" onclick="location.href='board_update_form.php?no=<?=$no?>&page=<?=$page?>'">수정</button>
+			<button type = "button" onclick ="location.href='board_delete.php?no=<?=$no?>'">삭제</button>
 <?php
  			
     }  else {
@@ -73,7 +73,7 @@
 								  
 								  echo "$show_name ($file_size Byte)
 								       &nbsp;&nbsp;&nbsp;
-								  <a href = 'borad_download.php?no=$no&real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";								  
+								  <a href = 'board_download.php?no=$no&real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";								  
 							  }?> </td>
 						</tr>
 					

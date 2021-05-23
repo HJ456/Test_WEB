@@ -10,7 +10,7 @@
   <h1>게시판 <?php 
     if($user_id) {
 ?>
-					<button onclick="location.href='borad_form.php'">글쓰기</button>
+					<button onclick="location.href='board_form.php'">글쓰기</button>
 <?php
 	} else {
 ?>
@@ -19,7 +19,7 @@
 	}
 ?>
                     <button type = "button" onclick ="location.href='index.php'">메인화면</button> </h1>
-    <table class="borad_list">
+    <table class="board_list">
       <thead align = center>
           <tr>
                <th width="70">번호</th>
@@ -38,13 +38,13 @@
           $page = 1;
 		  
 		  include "./dbConnect.php";
-          $sql = "select * from borad order by no desc"; 
+          $sql = "select * from board order by no desc"; 
 		  $result = mysqli_query($connect, $sql);
 		  $total = mysqli_num_rows($result);
 		  
 		  while ($row = mysqli_fetch_array($result)){
               echo '<tr><td width="70">' . $row[ 'no' ] . 
-			  '</td><td width="500">'. "<a href='./borad_view.php?no=".$row['no']."'>". $row['title']." </a>" . 
+			  '</td><td width="500">'. "<a href='./board_view.php?no=".$row['no']."'>". $row['title']." </a>" . 
 			  '</td><td width="100">' . $row[ 'user_name' ] . 
 			  '</td><td width="100">' . $row[ 'file_image' ] . 
 			  '</td><td width="100">'. $row[ 'cdate' ] .
@@ -83,7 +83,7 @@
 	if ($total_page>=2 && $page >= 2)	
 	{
 		$new_page = $page-1;
-		echo "<a href='borad_list.php?page=$new_page'>◀ 이전</a>";
+		echo "<a href='board_list.php?page=$new_page'>◀ 이전</a>";
 ?>
 <?php
 	}		
@@ -99,13 +99,13 @@
 		}
 		else
 		{
-			echo "<a href='borad_list.php?page=$i'> $i </a>";
+			echo "<a href='board_list.php?page=$i'> $i </a>";
 		}
    	}
    	if ($total_page>=2 && $page != $total_page)		
    	{
 		$new_page = $page+1;
-        echo "<a href='borad_list.php?page=$new_page'> 다음 ▶ </a>";		
+        echo "<a href='board_list.php?page=$new_page'> 다음 ▶ </a>";		
 ?> 
 
 <?php

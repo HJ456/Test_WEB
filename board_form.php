@@ -24,8 +24,8 @@
 <header>
     <?php include "header.php";?>
 </header>  
- 	<form method='POST' action='borad_insert.php' enctype='multipart/form-data'>
-     <h2>게시판 > 글쓰기 <button type = "button" onclick ="location.href='borad_list.php'">목록보기</button></h2>
+ 	<form method='POST' action='board_insert.php' enctype='multipart/form-data'>
+     <h2>게시판 > 글쓰기 <button type = "button" onclick ="location.href='board_list.php'">목록보기</button></h2>
 	<table>
                         <tr>
 							<td>제목</td>
